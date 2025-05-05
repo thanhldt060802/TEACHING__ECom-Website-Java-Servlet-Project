@@ -1,3 +1,4 @@
+<%@page import="model.User"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm sticky-top">
@@ -8,6 +9,10 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            
+            <%
+            User loginUser = (User)request.getSession().getAttribute("loginUser");
+            %>
 
             <div class="collapse navbar-collapse justify-content-end" id="mainNavbar">
                 <ul class="navbar-nav mb-2 mb-lg-0">
@@ -18,14 +23,23 @@
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Tài
                             khoản</a>
                         <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="./login.jsp">Đăng nhập</a></li>
-                            <li><a class="dropdown-item" href="./login.jsp">Đăng xuất</a></li>
+                        	<%
+                        	if(loginUser == null) {
+                        	%>
+                            <li><a class="dropdown-item" href="./login">Đăng nhập</a></li>
+                            <%
+                        	} else {
+                            %>
+                            <li><a class="dropdown-item" href="./logout">Đăng xuất</a></li>
                             <li><a class="dropdown-item" href="./cart.jsp">Giỏ hàng</a></li>
                             <li><a class="dropdown-item" href="./invoices.jsp">Hoá đơn</a></li>
                             <li><a class="dropdown-item" href="./account-info.jsp">Thông tin tài khoản</a></li>
+                            <%
+                        	}
+                            %>
                         </ul>
                     </li>
-                    <li class="nav-item dropdown">
+                    <!-- <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Dữ liệu</a>
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li><a class="dropdown-item" href="./table-user.jsp">Người dùng</a></li>
@@ -34,7 +48,7 @@
                             <li><a class="dropdown-item" href="./table-cart.jsp">Giỏ hàng</a></li>
                             <li><a class="dropdown-item" href="./table-invoice.jsp">Hoá đơn</a></li>
                         </ul>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </div>

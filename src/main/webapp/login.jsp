@@ -23,14 +23,14 @@
 
             <div class="row d-flex justify-content-center">
                 <div class="col-md-4">
-                    <form>
+                    <form action="./login" method="post">
                       <div class="mb-3">
                         <label for="username" class="form-label">Tên đăng nhập</label>
-                        <input type="text" class="form-control" id="username" required />
+                        <input type="text" class="form-control" id="username" name="usernameInput" required />
                       </div>
                       <div class="mb-3">
                         <label for="password" class="form-label">Mật khẩu</label>
-                        <input type="password" class="form-control" id="password" required />
+                        <input type="password" class="form-control" id="password" name="passwordInput" required />
                       </div>
                       <button type="submit" class="btn btn-primary w-100">Đăng nhập</button>
                       <div class="mt-3 text-center">
